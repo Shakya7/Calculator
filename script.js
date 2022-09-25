@@ -12,7 +12,7 @@ const chars={
     "+":"+"
 }
 
-console.log(buttons);
+
 buttons.forEach((el)=>{
     el.addEventListener("click",(event)=>{
         switch(event.target.innerText){
@@ -29,10 +29,10 @@ buttons.forEach((el)=>{
                 break;
             case "=":
                 try{
+                    answer = answer.replace(/[(]/g, "*(");
                     if(eval(answer)=="Infinity")
                         display.value="Math ERROR";
                     else{
-                        //console.log("Answer ",answer);
                         if(answer.includes("//")){
                             display.value="Syntax ERROR"
                         }
@@ -48,7 +48,6 @@ buttons.forEach((el)=>{
                 finally{
                     if(result==undefined)
                         display.value="Syntax ERROR"
-                    //console.log(result);
                     break;
                 }
             default:
@@ -61,7 +60,6 @@ buttons.forEach((el)=>{
                     display.value=result;
                     answer=result;
                     answer = answer.replace(/[÷×−+]/g, m => chars[m]);
-                    console.log(answer);
 
                 }
                 else{
@@ -80,7 +78,6 @@ buttons.forEach((el)=>{
 // answer = answer.replace(/[÷×−+]/g, m => chars[m]);
 //Dark - Light mode toggle
 toggler.addEventListener("click",()=>{
-    console.log(toggler.dataset.theme);
     if(toggler.dataset.theme==="dark"){
         toggler.dataset.theme="light";
         toggler.style.justifyContent="flex-end";
@@ -95,4 +92,3 @@ toggler.addEventListener("click",()=>{
     }
 })
 
-//Array.from(buttons).forEach((el)=>console.log(el));
