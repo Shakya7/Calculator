@@ -8,6 +8,8 @@ body{
     display:flex;
     justify-content: center;
     align-items: center;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 5%, rgba(9,9,121,1) 39%, rgba(0,255,162,1) 100%);
 }
 .container{
     max-width: 80%;
@@ -20,9 +22,9 @@ body{
     position: relative;
     align-items: center;
     justify-content: center;
-    -moz-box-shadow: 0 0 6px #999;
-    -webkit-box-shadow: 0 0 6px #999;
-    box-shadow: 0 0 6px #999; 
+    -moz-box-shadow: 2px 2px 6px #999;
+    -webkit-box-shadow: 2px 2px 6px #999;
+    box-shadow: 2px 2px 6px #999; 
     transition: background-color 0.4s ease-in-out;
 }
 .toggler-div{
