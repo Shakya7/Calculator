@@ -32,20 +32,27 @@ buttons.forEach((el)=>{
                     if(eval(answer)=="Infinity")
                         display.value="Math ERROR";
                     else{
-                        result=eval(answer);
-                        display.value=result;
-
+                        //console.log("Answer ",answer);
+                        if(answer.includes("//")){
+                            display.value="Syntax ERROR"
+                        }
+                        else{
+                            result=eval(answer);
+                            display.value=result;
+                        }
                     }    
                 }catch(error){
                     console.log(error.message);
                     display.value="Syntax ERROR"
                 }
                 finally{
-                    console.log(result);
+                    if(result==undefined)
+                        display.value="Syntax ERROR"
+                    //console.log(result);
                     break;
                 }
             default:
-                if(display.value=="Math ERROR" || display.value=="Syntax ERROR"){
+                if(display.value=="Math ERROR" || display.value=="Syntax ERROR" || display.value=="undefined"){
                     answer=event.target.innerText;
                     display.value=answer;
                 }
